@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rigor LinkedIn — Profile Optimizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <!-- SEO & Social -->
+  <meta name="description" content="Optimize your LinkedIn headline, summary, and experience for maximum recruiter visibility and search ranking." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rigor.design/linkedin" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rigor.design/linkedin" />
+  <meta property="og:title" content="Rigor LinkedIn — Profile Optimizer" />
+  <meta property="og:description" content="Optimize your LinkedIn headline, summary, and experience for maximum recruiter visibility and search ranking." />
+  <meta property="og:image" content="https://rigor.design/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rigor LinkedIn — Profile Optimizer" />
+  <meta name="twitter:description" content="Optimize your LinkedIn headline, summary, and experience for maximum recruiter visibility and search ranking." />
+  <meta name="twitter:image" content="https://rigor.design/og-image.png" />
+
+  <!-- Theme color -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#1E3A5F" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav class="nav" aria-label="Main navigation">
+    <a href="/" class="nav-brand">rigor<span>.</span>design</a>
+    <div class="nav-links">
+      <a href="#" id="nav-login" class="nav-link">Sign In</a>
+      <a href="#" id="nav-signup" class="btn-nav">Get Started</a>
+    </div>
+  </nav>
+  <div class="modal-overlay hidden" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close dialog">&times;</button>
+      <div class="modal-tabs"><button class="tab-btn active" data-tab="login">Sign In</button><button class="tab-btn" data-tab="signup">Sign Up</button></div>
+      <div class="tab-content" id="tab-login"><input type="email" class="input" id="login-email" placeholder="Email"/><input type="password" class="input" id="login-password" placeholder="Password"/><button class="btn-primary full" id="btn-login" aria-label="Sign in to your account">Sign In</button></div>
+      <div class="tab-content hidden" id="tab-signup"><input type="text" class="input" id="signup-name" placeholder="Full Name"/><input type="email" class="input" id="signup-email" placeholder="Email"/><input type="password" class="input" id="signup-password" placeholder="Password"/><button class="btn-primary full" id="btn-signup" aria-label="Create a new account">Create Account</button></div>
+      <p class="auth-error hidden" id="auth-error"></p>
+    </div>
+  </div>
+  <section class="hero" id="main-content">
+    <div class="hero-badge">LinkedIn Profile Optimizer</div>
+    <h1 class="hero-title">Optimize Your LinkedIn<br/><em>Get Found by Recruiters</em></h1>
+    <p class="hero-sub">Paste your LinkedIn sections and target role. AI analyzes and rewrites each section for maximum visibility.</p>
+  </section>
+  <section class="tool-section" aria-label="Main tool"><div id="usage-meter-container"></div>
+    <div class="tool-container">
+      <div class="tool-panel">
+        <div class="panel-header"><span class="panel-num">01</span><h2>Your LinkedIn Sections</h2></div>
+        <label class="field-label">Headline</label>
+        <input type="text" class="input" id="headline" placeholder="Current LinkedIn headline..."/>
+        <label class="u-rigor_linkedin-1 field-label">About / Summary</label>
+        <textarea class="input textarea" id="about" placeholder="Your current About section..."></textarea>
+        <label class="u-rigor_linkedin-2 field-label">Experience (most recent role)</label>
+        <textarea class="input textarea" id="experience" placeholder="Your most recent job description from LinkedIn..."></textarea>
+        <label class="u-rigor_linkedin-3 field-label">Skills (comma separated)</label>
+        <input type="text" class="input" id="skills" placeholder="JavaScript, Product Management, Agile..."/>
+      </div>
+      <div class="tool-panel">
+        <div class="panel-header"><span class="panel-num">02</span><h2>Target Role</h2></div>
+        <input type="text" class="input" id="target-role" placeholder="e.g. Senior Product Manager"/>
+        <input type="text" class="u-rigor_linkedin-4 input" id="target-industry" placeholder="Target industry (e.g. FinTech)"/>
+        <textarea class="u-rigor_linkedin-5 input textarea" id="target-jd" placeholder="Paste a job description you want to target (optional)..."></textarea>
+      </div>
+      <div class="tool-actions">
+        <button class="btn-primary large" id="btn-optimize"><span class="btn-text">Optimize My Profile</span><span class="btn-loader hidden">Optimizing...</span></button>
+      </div>
+      <div class="results hidden" id="results">
+        <div class="sections-grid" id="sections-grid"></div>
+        <button class="btn-secondary" id="btn-save" aria-label="Save result">Save Optimizations</button>
+      </div>
+    </div>
+  </section>
+  <footer class="footer"><p>© 2025 rigor.design</p></footer>
+  <script type="module" src="js/app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
