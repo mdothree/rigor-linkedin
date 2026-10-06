@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rigor LinkedIn — Profile Optimizer</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a4fa3'/><text x='16' y='23' font-family='serif' font-weight='700' font-size='14' fill='white'>in</text></svg>">
   <link rel="stylesheet" href="css/styles.css"/>
   <!-- SEO & Social -->
   <meta name="description" content="Optimize your LinkedIn headline, summary, and experience for maximum recruiter visibility and search ranking." />
@@ -15,13 +16,16 @@
   <meta property="og:url" content="https://rigor.design/linkedin" />
   <meta property="og:title" content="Rigor LinkedIn — Profile Optimizer" />
   <meta property="og:description" content="Optimize your LinkedIn headline, summary, and experience for maximum recruiter visibility and search ranking." />
-  <meta property="og:image" content="https://rigor.design/og-image.png" />
+  <meta property="og:image" content="./og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Rigor LinkedIn — Profile Optimizer" />
   <meta name="twitter:description" content="Optimize your LinkedIn headline, summary, and experience for maximum recruiter visibility and search ranking." />
-  <meta name="twitter:image" content="https://rigor.design/og-image.png" />
+  <meta name="twitter:image" content="./og-image.jpg" />
 
   <!-- Theme color -->
   <link rel="manifest" href="/manifest.json" />
@@ -48,15 +52,15 @@
   <section class="hero" id="main-content">
     <div class="hero-badge">LinkedIn Profile Optimizer</div>
     <h1 class="hero-title">Optimize Your LinkedIn<br/><em>Get Found by Recruiters</em></h1>
-    <p class="hero-sub">Paste your LinkedIn sections and target role. AI analyzes and rewrites each section for maximum visibility.</p>
+    <p class="hero-sub">Paste your headline or About section and your target role. AI analyzes and rewrites each section for maximum visibility.</p>
   </section>
   <section class="tool-section" aria-label="Main tool"><div id="usage-meter-container"></div>
     <div class="tool-container">
       <div class="tool-panel">
         <div class="panel-header"><span class="panel-num">01</span><h2>Your LinkedIn Sections</h2></div>
-        <label class="field-label">Headline</label>
+        <label class="field-label" for="headline">Headline</label>
         <input type="text" class="input" id="headline" placeholder="Current LinkedIn headline..."/>
-        <label class="u-rigor_linkedin-1 field-label">About / Summary</label>
+        <label class="u-rigor_linkedin-1 field-label" for="about">About / Summary</label>
         <textarea class="input textarea" id="about" placeholder="Your current About section..."></textarea>
         <label class="u-rigor_linkedin-2 field-label">Experience (most recent role)</label>
         <textarea class="input textarea" id="experience" placeholder="Your most recent job description from LinkedIn..."></textarea>
@@ -65,9 +69,12 @@
       </div>
       <div class="tool-panel">
         <div class="panel-header"><span class="panel-num">02</span><h2>Target Role</h2></div>
+        <label class="field-label" for="target-role">Target role (required)</label>
         <input type="text" class="input" id="target-role" placeholder="e.g. Senior Product Manager"/>
-        <input type="text" class="u-rigor_linkedin-4 input" id="target-industry" placeholder="Target industry (e.g. FinTech)"/>
-        <textarea class="u-rigor_linkedin-5 input textarea" id="target-jd" placeholder="Paste a job description you want to target (optional)..."></textarea>
+        <label class="u-rigor_linkedin-4 field-label" for="target-industry">Target industry</label>
+        <input type="text" class="input" id="target-industry" placeholder="e.g. FinTech"/>
+        <label class="u-rigor_linkedin-5 field-label" for="target-jd">Job description (optional)</label>
+        <textarea class="input textarea" id="target-jd" placeholder="Paste a job description you want to target..."></textarea>
       </div>
       <div class="tool-actions">
         <button class="btn-primary large" id="btn-optimize"><span class="btn-text">Optimize My Profile</span><span class="btn-loader hidden">Optimizing...</span></button>
@@ -78,8 +85,16 @@
       </div>
     </div>
   </section>
-  <footer class="footer"><p>© 2025 rigor.design</p></footer>
-  <script type="module" src="js/app.js"></script>
+  <footer class="footer">
+    <nav class="footer-tools" aria-label="Other rigor.design tools"><a href="https://rigor.design">All tools</a> <a href="https://resume.rigor.design">Resume Analyzer</a> <a href="https://cover.rigor.design">Cover Letters</a> <a href="https://interview.rigor.design">Interview Coach</a> <a href="https://networking.rigor.design">Networking Emails</a> <a href="https://portfolio.rigor.design">Portfolio Review</a> <a href="https://salary.rigor.design">Salary Negotiation</a></nav>
+    <p>© 2025 rigor.design</p>
+  </footer>
+  <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script src="js/app.js" type="module"></script>
 
   <script>
     if ('serviceWorker' in navigator) {

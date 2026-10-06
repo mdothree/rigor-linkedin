@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "rigor-linkedin-v1";
+const CACHE_NAME = "rigor-linkedin-v2"; // bumped: v1 cached a broken env.js (SyntaxError)
 const STATIC_ASSETS = [
   "/",
   "/index.html",
