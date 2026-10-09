@@ -41,8 +41,8 @@
     <nav class="nav" aria-label="Main navigation">
     <a href="/" class="nav-brand">rigor<span>.</span>design</a>
     <div class="nav-links">
-      <a href="#" id="nav-login" class="nav-link">Sign In</a>
-      <a href="#" id="nav-signup" class="btn-nav">Get Started</a>
+      <a href="#signin" id="nav-login" class="nav-link">Sign In</a>
+      <a href="#signup" id="nav-signup" class="btn-nav">Get Started</a>
     </div>
   </nav>
   <div class="modal-overlay hidden" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
@@ -97,12 +97,6 @@
 
     <script src="js/app.js" type="module"></script>
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      });
-    }
-  </script>
+  <script src="js/sw-register.js" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 import { initPaywall, gate, showPricingModal, renderUsageMeter } from "./services/paywallUI.js";
-import { validators, guardSubmit } from "./utils/validate.js";
+import { validators, guardSubmit, setFieldError } from "./utils/validate.js";
 import { saveDoc, getUserDocs, tsToString } from "./services/firestoreService.js";
 import { apiFetch } from "./config/env.js";
 import { toast } from "./utils/toast.js";
@@ -20,7 +20,7 @@ authService.onAuthChanged(async user => {
   await initPaywall(user ? user.uid : null);
   if (user) renderUsageMeter("usage-meter-container", "analyses");
 });
-document.getElementById("nav-upgrade")?.addEventListener("click", () => showPricingModal("pro"));
+document.getElementById("nav-upgrade")?.addEventListener("click", (e) => { e.preventDefault(); showPricingModal("pro"); });
 document.getElementById("nav-manage")?.addEventListener("click", () => showPricingModal("pro"));
 
 initAuthModal(authService);
@@ -80,6 +80,7 @@ async function optimize() {
   const payload = { headline: val("headline"), about: val("about"), experience: val("experience"), skills: val("skills"), targetRole: val("target-role"), targetIndustry: val("target-industry"), targetJD: val("target-jd") };
   if (!payload.headline && !payload.about) {
     document.getElementById("headline").focus();
+    setFieldError("headline", "Please fill in your headline or your About section.");
     return toast.warning("Please fill in your headline or your About section.");
   }
 
