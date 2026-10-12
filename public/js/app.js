@@ -1,4 +1,4 @@
-import { initPaywall, gate, showPricingModal, renderUsageMeter } from "./services/paywallUI.js";
+import { initPaywall, gate, requirePro, showPricingModal, renderUsageMeter } from "./services/paywallUI.js";
 import { validators, guardSubmit, setFieldError } from "./utils/validate.js";
 import { saveDoc, getUserDocs, tsToString } from "./services/firestoreService.js";
 import { apiFetch } from "./config/env.js";
@@ -84,6 +84,8 @@ async function optimize() {
     return toast.warning("Please fill in your headline or your About section.");
   }
 
+  // #94: paid from first use (opens the pricing modal when not subscribed).
+  if (!(await requirePro("analyses"))) return;
   clearToolError();
   document.getElementById("results").classList.add("hidden");
   setBusy(true);
