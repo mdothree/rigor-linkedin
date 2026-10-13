@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "rigor-linkedin-v7"; // bumped: cache-first SW must pick up the VISUAL-QA dark-theme CSS
+const CACHE_NAME = "rigor-linkedin-v8"; // bumped: theme toggle (html[data-theme]) CSS + JS
 const STATIC_ASSETS = [
   "/",
   "/index.html",
