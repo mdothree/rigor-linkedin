@@ -1,10 +1,10 @@
 "use strict";
 
-const CACHE_NAME = "rigor-linkedin-v10"; // bumped: theme toggle (html[data-theme]) CSS + JS
+const CACHE_NAME = "rigor-linkedin-v11"; // bumped: styles.css + theme-toggle.css version-stamped (?v=20261015)
 const STATIC_ASSETS = [
   "/",
   "/index.html",
-  "/css/styles.css",
+  "/css/styles.css?v=20261015",
   "/js/app.js",
   "/js/success.js",
   "/js/config/firebase.js",
