@@ -926,3 +926,6 @@ body {
   .section-header h2, .history-title, .result-toolbar h3, .complete-card h2 { color: var(--text); }
   .panel-num { color: var(--gray-400); }
 }
+
+/* No italics (Principal 10-16): emphasis by colour or weight. */
+em, i, cite, q, dfn, var, address { font-style: normal; }
